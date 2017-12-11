@@ -7,12 +7,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <!-- CSS, javascript and font -->
-  <script src="https://code.jquery.com/jquery-3.1.1.js" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript" src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
   <script src="http://d3js.org/d3.v3.min.js"></script>
   <script src="https://d3js.org/topojson.v2.min.js"></script>
   <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/modules/treemap.js"></script>
+  <script src="https://code.highcharts.com/modules/data.js"></script>
+  <script src="https://code.highcharts.com/modules/exporting.js"></script>
+  <script src="tree.js" type="application/javascript"></script>
   <link rel="stylesheet" href="custom.css">
   <link href="https://fonts.googleapis.com/css?family=Barlow|Spectral+SC:300,400|Cormorant+Garamond" rel="stylesheet">
 </head>
@@ -63,6 +68,11 @@
       <div class="viz1_map"></div>
     </div>
   </div> <!-- row 3 ends -->
+
+  <div class="row">
+    <div class="col-md-12 col-lg-12" id="container">
+    </div>
+  </div>
 
 </div>  <!-- Container ends here -->
 
@@ -173,7 +183,7 @@
     loadMapData(d);
   });
 
-  // Selecting the slider
+  // Selecting the slider and calling the update function using the slider value
   d3.selectAll("input.range-slider").on("input", function() {
         update(+this.value, this.id)
   });
@@ -187,6 +197,7 @@
         d3.select(textId).text(year);
         d3.csv(csv, function(d){
           updateMapData(d,year.slice(2));
+          updateTreeData(d,'4',year);
         });
       }
       else if (val == 2){
@@ -194,6 +205,7 @@
         d3.select(textId).text(year);
         d3.csv(csv, function(d){
           updateMapData(d,year.slice(2));
+          updateTreeData(d,'3',year);
         });
       }
       else if (val == 3){
@@ -201,6 +213,7 @@
         d3.select(textId).text(year);
         d3.csv(csv, function(d){
           updateMapData(d,year.slice(2));
+          updateTreeData(d,'2',year);
         });
       }
       else {
@@ -208,6 +221,7 @@
         d3.select(textId).text(year);
         d3.csv(csv, function(d){
           updateMapData(d,year.slice(2));
+          updateTreeData(d,'1',year);
         });
       }
   }
@@ -329,7 +343,7 @@
                .attr('font-size','8pt')
                .attr('fill','black');
 
-       }); // Closing d3.json anonymous function.
+       }); // Closing d3.json's anonymous function.
 
   }// Closing loadMapData function. Began on line 95.
 
@@ -338,11 +352,60 @@
     paths.transition()
          .duration(1000)
          .style('fill',function(d,i){
-           console.log(d.properties.name,d.properties['dataValueTotal'+year]);
            var value = d.properties['dataValueTotal'+year];
            return color(value);
          });
   }
+
+  var updateTreeData = function(d,val,year){
+      var chart = new Highcharts.chart('container', {
+            xAxis: {
+            // Avoid data module setting axis type to category.
+            type: 'linear'
+            },
+            series: [{
+                type: "treemap",
+                layoutAlgorithm: 'strip',
+                alternateStartingDirection: true,
+
+                levels: [{
+                    level: 1,
+                    layoutAlgorithm: 'strip',
+                    dataLabels: {
+                        enabled: true,
+                        align: 'left',
+                        verticalAlign: 'top',
+                        style: {
+                            fontSize: '13px',
+                            fontWeight: 'bold'
+                        }
+                    }
+                }]
+            }],
+
+            title: {text: 'Hate Crimes by Motivation - '+year+' (Normalized to US population)'},
+            data: {
+                    googleSpreadsheetKey: '1CSSXuFN5lJJedAS7RO-8HkL2VNi_ljtsly5Cnq04V6M',
+                    googleSpreadsheetWorksheet : val,
+                    seriesMapping: [{
+                                      id: 1,
+                                      name: 1,
+                                      value: 2,
+                                      parent: 3,
+                                      color: 4
+                                    }]
+                  },
+            tooltip: {
+                      formatter: function() {
+                      //console.log(this);
+                          if(this.point.parent == null){
+                            return '<b>'+ this.key +': </b>' + this.point.value + '<br>'
+                            }
+                          return '<b> Parent : ' + this.point.parent +'</b><br><b>'+ this.key +': </b>' + this.point.value + '<br>'
+                      }
+                    } //tooltip key-value pair closes
+        });
+    }
 
 </script>
 </body>
