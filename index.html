@@ -1,5 +1,4 @@
 <html>
-
 <head>
   <title>Hatecrime Distribution in the United States between 2013 and 2016</title> <!-- can have a placeholder in title -->
   <!-- Required meta tags -->
@@ -68,6 +67,9 @@
     <div class="col-md-9 col-log-9">
       <div class="viz1_tootlip"></div>
       <div class="viz1_map"></div>
+    </div>
+    <div class="col-md-3 col-lg-3">
+        <div class="viz2_line"></div>
     </div>
   </div> <!-- row 3 ends -->
 
@@ -414,8 +416,8 @@ var year;
         });
     }
   
-var margin = {top: 20, right: 300, bottom: 30, left: 300},
-    widthM = d3.select('div.viz1_map')[0][0].scrollWidth - margin.left - margin.right,
+var margin = {top: 20, right: 10, bottom: 30, left: 10},
+    widthM = d3.select('div.viz2_line')[0][0].clientWidth - margin.left - margin.right,
     heightM = 400;
 
 console.log(widthM);
@@ -468,7 +470,7 @@ function stateChecker(stateClicked,val){
 					.y(function(d) { return yScale(d.y); });
 
 				//draw chart
-				var hcm = d3.select("body").append("svg")
+				var hcm = d3.select("div.viz2_line").append("svg")
 				    .attr("width", width + margin.left + margin.right)
 				    .attr("height", height + margin.top + margin.bottom)
 				  .append("g")
