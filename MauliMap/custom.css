@@ -1,0 +1,111 @@
+body{
+  font-size: 62.5%;
+  font-family: 'Barlow', sans-serif;
+}
+
+h1,h2,h3,h4{
+  font-family: 'Spectral SC', serif;
+}
+
+h1{
+  font-size: 3.0em;
+  line-height: 1.6em;
+  text-transform: capitalize;
+}
+
+h2{
+  font-size: 2.4em;
+  line-height: 1.6em;
+}
+
+h3{
+  font-size: 2.0em;
+  line-height: 1.6em;
+}
+
+h4{
+  font-size: 1.7em;
+  line-height: 1.8em;
+}
+
+p, ul{
+  font-size: 1.7em;
+  line-height: 1.8em;
+  font-family: Helvetica, sans-serif;
+  font-weight: 300;
+}
+
+.container{
+  margin-top: 30px;
+}
+
+.viz-title{
+  text-align: center;
+  line-height: 36px;
+}
+
+.title-div{
+  margin-top: 20px;
+}
+
+
+#year{
+  width: 80px;
+}
+
+input{
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.time-slider-div{
+  text-align: center;
+}
+
+.time-slider-div span{
+    font-size: 2.0em;
+    line-height: 1.6em;
+    font-family: 'Spectral SC', serif;
+}
+
+.time-slider-div input{
+  width: 300px;
+  margin: 0px 15px;
+}
+
+svg{
+  background-color: #fff;
+  border-radius: 3px;
+  border: 1px solid #fff;
+}
+.d3-tip {
+  line-height: 1;
+  font-weight: bold;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border-radius: 2px;
+}
+
+/* Creates a small triangle extender for the tooltip */
+.d3-tip:after {
+  box-sizing: border-box;
+  display: inline;
+  font-size: 10px;
+  width: 100%;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.8);
+  content: "\25BC";
+  position: absolute;
+  text-align: center;
+}
+
+/* Style northward tooltips differently */
+.d3-tip.n:after {
+  margin: -1px 0 0 0;
+  top: 100%;
+  left: 0;
+}
+.pathMap:hover {
+  fill: orangered ;
+}
