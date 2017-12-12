@@ -312,7 +312,7 @@
                     yr = '16';
                   }
                   return "<strong>"+d.properties.name+"</strong></br>"+
-                         "<span>Total Hate Crimes : "+d.properties['dataValueTotal'+yr]+"</span>";
+                         "<span>Normalized Hate Crimes : "+d.properties['dataValueNorm'+yr]+"</span>";
               })
 
   var csv = 'statewise-all-years-categories.csv';
@@ -380,6 +380,7 @@ var year;
               var dataValueGender13 = data[i].Gender13;
               var dataValueGenderIdentity13 = data[i].GenderIdentity13;
               var dataValueTotal13 = Number(data[i].Race13) + Number(data[i].Religion13) + Number(data[i].SexualOrientation13) + Number(data[i].Disability13) + Number(data[i].Gender13) + Number(data[i].GenderIdentity13);
+              var dataValueNorm13 = Math.round(data[i].Normalized13);
 
               var dataValueRace14 = data[i].Race14;
               var dataValueReligion14 = data[i].Religion14;
@@ -388,6 +389,7 @@ var year;
               var dataValueGender14 = data[i].Gender14;
               var dataValueGenderIdentity14 = data[i].GenderIdentity14;
               var dataValueTotal14 = Number(data[i].Race14) + Number(data[i].Religion14) + Number(data[i].SexualOrientation14) + Number(data[i].Disability14) + Number(data[i].Gender14) + Number(data[i].GenderIdentity14);
+              var dataValueNorm14 = Math.round(data[i].Normalized14);
 
               var dataValueRace15 = data[i].Race15;
               var dataValueReligion15 = data[i].Religion15;
@@ -396,6 +398,7 @@ var year;
               var dataValueGender15 = data[i].Gender15;
               var dataValueGenderIdentity15 = data[i].GenderIdentity15;
               var dataValueTotal15 = Number(data[i].Race15) + Number(data[i].Religion15) + Number(data[i].SexualOrientation15) + Number(data[i].Disability15) + Number(data[i].Gender15) + Number(data[i].GenderIdentity15);
+              var dataValueNorm15 = Math.round(data[i].Normalized15);
 
               var dataValueRace16 = data[i].Race16;
               var dataValueReligion16 = data[i].Religion16;
@@ -404,6 +407,7 @@ var year;
               var dataValueGender16 = data[i].Gender16;
               var dataValueGenderIdentity16 = data[i].GenderIdentity16;
               var dataValueTotal16 = Number(data[i].Race16) + Number(data[i].Religion16) + Number(data[i].SexualOrientation16) + Number(data[i].Disability16) + Number(data[i].Gender16) + Number(data[i].GenderIdentity16);
+              var dataValueNorm16 = Math.round(data[i].Normalized16);
 
             	// Find the corresponding state inside the GeoJSON
             	for (var j = 0; j < json.features.length; j++)  {
@@ -419,6 +423,7 @@ var year;
                         json.features[j].properties.dataValueGender13 = dataValueGender13;
                         json.features[j].properties.dataValueGenderIdentity13 = dataValueGenderIdentity13;
                         json.features[j].properties.dataValueTotal13 = dataValueTotal13;
+                        json.features[j].properties.dataValueNorm13 =  dataValueNorm13; 
 
                         json.features[j].properties.dataValueRace14 = dataValueRace14;
                         json.features[j].properties.dataValueReligion14 = dataValueReligion14;
@@ -427,6 +432,7 @@ var year;
                         json.features[j].properties.dataValueGender14 = dataValueGender14;
                         json.features[j].properties.dataValueGenderIdentity14 = dataValueGenderIdentity14;
                         json.features[j].properties.dataValueTotal14 = dataValueTotal14;
+                        json.features[j].properties.dataValueNorm14 =  dataValueNorm14;
 
                         json.features[j].properties.dataValueRace15 = dataValueRace15;
                         json.features[j].properties.dataValueReligion15 = dataValueReligion15;
@@ -435,6 +441,7 @@ var year;
                         json.features[j].properties.dataValueGender15 = dataValueGender15;
                         json.features[j].properties.dataValueGenderIdentity15 = dataValueGenderIdentity15;
                         json.features[j].properties.dataValueTotal15 = dataValueTotal15;
+                        json.features[j].properties.dataValueNorm15 =  dataValueNorm15;
 
                         json.features[j].properties.dataValueRace16 = dataValueRace16;
                         json.features[j].properties.dataValueReligion16 = dataValueReligion16;
@@ -443,6 +450,7 @@ var year;
                         json.features[j].properties.dataValueGender16 = dataValueGender16;
                         json.features[j].properties.dataValueGenderIdentity16 = dataValueGenderIdentity16;
                         json.features[j].properties.dataValueTotal16 = dataValueTotal16;
+                        json.features[j].properties.dataValueNorm16 =  dataValueNorm16;
 
                       break;
             		  }
@@ -461,7 +469,7 @@ var year;
             	 .style("stroke", "#eee")
             	 .style("stroke-width", "1")
             	 .style("fill", function(d) {
-                	var value = d.properties.dataValueRace16;
+                	var value = d.properties.dataValueNorm16;
                 	return color(value);
                })
                .on('mouseover', tip.show)
@@ -525,7 +533,8 @@ var year;
     paths.transition()
          .duration(1000)
          .style('fill',function(d,i){
-           var value = d.properties['dataValueTotal'+year];
+           var value = d.properties['dataValueNorm'+year];
+           console.log(d.properties.name, d.properties['dataValueNorm'+year]);
            return color(value);
          });
   }
