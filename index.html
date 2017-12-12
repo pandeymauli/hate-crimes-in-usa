@@ -8,6 +8,21 @@
   <!-- CSS, javascript and font -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript" src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+  <!-- Latest compiled and minified Bootstrap JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+    <!-- Initialize Bootstrap functionality -->
+    <script>
+    // Initialize tooltip component
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip()
+    })
+
+    // Initialize popover component
+    $(function () {
+      $('[data-toggle="popover"]').popover()
+    })
+    </script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
   <script src="http://d3js.org/d3.v3.min.js"></script>
   <script src="https://d3js.org/topojson.v2.min.js"></script>
@@ -32,18 +47,27 @@
       </h1>
       <h4 class="viz-title">
         <!-- style="border-bottom:1px solid #ddd; height: 45px" -->
-        By <b>Vizards</b><br>
+        By <b>Pallavi, Ruta, Mauli, Olivia, Mani</b><br>
       </h4>
+      <br>
     </div>
     <div class="col-md-2 col-lg-2"></div>
   </div> <!-- row 1 ends -->
 
   <div class="row">
     <div class="col-md-2 col-lg-2"></div>
-    <div class="col-md-15 col-lg-15 explanation-part1">
+    <div class="col-md-8 col-lg-8 explanation-part1">
+      <br>
+      <h2>On the rise?</h2>
       <p>
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+        Everyday, we see reports of crime, polarized political tumult, and biased-charged incidents both within and outside of the U.S.. Social media and access to other internet sites make these events appear to be growing in numbers and intensity, both through the increase of contentious political agendas, fake news reports, and ease of finding and sharing information with others. One such type of crime that encompasses all of these elements are <strong>hate crimes</strong>, and they are shown to be <strong>on the rise</strong> in the United States within recent years.
       </p>
+      <p>The state of Michigan especially has seen an increase in the number of <strong>reported</strong> hate crimes within the past few years. With various groups becoming emboldened to speak out on their beliefs, even traditionally ‘liberal’ communities, such as the University of Michigan, still experience what appears to be a spike in the amount of hate-related biases and crimes. Given the recent climate of the University’s campus and that of the U.S., the issue is as prevalent as ever.</p>
+      <h2>FBI Reported Hate Crimes</h2>
+      <p>The purpose of this project is to explore the distribution of hate crimes reported in the United States from 2013-2016. Furthermore, we want to show geographical differences for various years and explore potential reasonings and insights as to why these differences exist. </p>
+      <p>The data used for this project comes from the United States Federal Bureau of Investigation and can be publicly accessed at the FBI Hate Crime website: ucr.fbi.gov/hate-crime/. The FBI categorizes the hate crimes into <strong> 6 motivation types </strong>: race and ethnicity, religion, sexual orientation, disability, gender, and gender identity. Below is a brief description of each motivation type taken from the FBI Hate Crime websites:</p>
+      <h2>Hate Crimes in the U.S. from 2013-2016</h2>
+      <p><strong>Explore the visualizations below to get a sense of the distribution of the FBI’s reported hate crime dataset.</strong> Use the time slider to update the U.S. map and the motivation breakdown treemap for a given year; click on a state to explore further statistics for the 6 motivations for that given year. </p>
     </div>
     <div class="col-md-2 col-lg-2"></div>
   </div> <!-- row 2 ends -->
@@ -52,6 +76,7 @@
     <div class="col-md-12 col-lg-12">
       <div class="time-slider-div">
         <label for="time-slider">
+          <br>
           <span>Year</span>
           <input type="range" min="1" max="4" id="time-slider" class="range-slider" value="4" step="1" list="steplist">
           <datalist id="steplist">
@@ -64,18 +89,48 @@
         </label>
       </div>
       </div>
-    <div class="col-md-9 col-log-9">
+    <div class="col-md-12 col-lg-12">
       <div class="viz1_tootlip"></div>
       <div class="viz1_map"></div>
     </div>
-    <div class="col-md-3 col-lg-3">
-        <div class="viz2_line"></div>
-    </div>
   </div> <!-- row 3 ends -->
+    <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="stateselector">Select State</button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#viz2" id="Alabama">Alabama</a>
+                <a class="dropdown-item" href="#viz2" id="Alaska">Alaska</a>
+                <a class="dropdown-item" href="#viz2" id="Arizona">Arizona</a>
+            </div>
+    </div>
+    <p class="lead">You have selected: </p> <!--Display State Name as the graph is for that-->
+    <script>
+    $(".dropdown-menu a").click(function(){
+      $(this).parents(".dropdown").find('.selection').text($(this).text());
+    });
+    </script>
+    <p class="lead" id="selectedState"></p>
+    <div class="row">
+    <div class="col-md-12 col-lg-12">
+        <div class="viz2_line" id="viz2"></div>
+    </div>
+    </div> <!-- row 4 ends -->
+    <div class="row">
+      <div class="col-md-12 col-lg-12" id="container">
+      </div>
+    </div>
+
 
   <div class="row">
-    <div class="col-md-12 col-lg-12" id="container">
+    <div class="col-md-2 col-lg-2"></div>
+    <div class="col-md-8 col-lg-8">
+      <br>
+      <h2> FBInsights & Takeaways</h2>
+      <p> As you might have noticed, the distribution of hate crimes appears to be skewed towards unexpected states. This leads us to the biggest limitation of using the FBI reported dataset: a lack of reporting from numerous agencies throughout the U.S.. There are many factors that are hindering this reporting, one being that it is completely voluntary to participate at this point. Additionally, some law enforcement agencies have a lack of training identifying biased crimes potentially leadings to lower reportings. As of 2016, only 1,776 out 15,254 participating agencies (~18,000 total in the U.S. as of 2016) reported hate crimes in their jurisdiction. This means that 88% of agencies (such as those in Mississippi) are reporting that there are 0 hate crimes happening in their jurisdiction. To exemplify this limitation, Michigan is the fourth highest ranking state in regards to hate crimes, but Michigan also is the second highest ranking state (second to California) in terms of reporting hate crimes. </p>
+
+      <p>Despite this limitation, there is an increase in the number of reportings of hate crimes within the past few years. This lines up with recent political events, such as the election of Donald Trump as president in 2016 and his implementation policies with agendas that are biased against certain individuals and groups of people. Specifically, Donald Trump has introduced rhetoric that targets groups of varying religious, gender, gender identity, and race/ethnicity grounds among others.
+
     </div>
+    <div class="col-md-2 col-lg-2"></div>
   </div>
 
 </div>  <!-- Container ends here -->
@@ -149,14 +204,21 @@
                .path()
   		  	     .projection(projection);
 
-  var color = d3.scale
-                .linear()
-                .domain([0,1000])
-                .interpolate(d3.interpolateHcl)
-                .range([d3.rgb("#02447F"), d3.rgb('#A5E9FF')]);
+  // var color = d3.scale
+  //               .linear()
+  //               .domain([0,1000])
+  //               .interpolate(d3.interpolateHcl)
+  //               .range([d3.rgb("#02447F"), d3.rgb('#A5E9FF')]);
+  var legendLabels = ['0-50', '50-100', '100-150', '150-200', '200-250', '250-500', '500-1000'];
+  var legendValues = [50, 100, 150, 200, 250, 500, 1000];
+//  var colorValues = ['rgb(255,254,218)', 'rgb(208,232,181)', 'rgb(153,204,186)', 'rgb(114,181,194)', 'rgb(62,94,164)', 'rgb(46,55,144)', 'rgb(21,35,87)'];
+  var colorValues = ['#B2EBF2', '#80DEEA', '#4DD0E1', '#26C6DA', '#00BCD4', '#00ACC1','#0097A7', '#00838F', '#006064'];
+
+  var color = d3.scale.threshold().domain(legendValues).range(colorValues);
 
   var svg = d3.select("div.viz1_map")
               .append("svg")
+              .attr('class','us-map')
               .attr("width", width)
               .attr("height", height);
 
@@ -190,7 +252,7 @@
   d3.selectAll("input.range-slider").on("input", function() {
         update(+this.value, this.id)
   });
-    
+
 var year;
   // This function grabs the value from the slider and updates the map colors
   function update(val, id) {
@@ -231,9 +293,6 @@ var year;
   }
 
   var loadMapData = function(data) {
-        // setting the range of the input data
-        color.domain([0,100,200,300,400,500,600,700,800,900,1000]);
-
         // Load GeoJSON data and merge with states data
         d3.json("us-states.json", function(json) {
             // Loop through each state data value in the .csv file
@@ -330,17 +389,16 @@ var year;
             	 .style("stroke", "#eee")
             	 .style("stroke-width", "1")
             	 .style("fill", function(d) {
-                	var value = d.properties.dataValueRace13;
+                	var value = d.properties.dataValueRace16;
                 	return color(value);
                })
                .on('mouseover', tip.show)
                .on('mouseout', tip.hide) // style fill's anonymous function closes
                .on("click", function(d){
                 var stateClicked = d.properties.name;
-                console.log("Hello "+stateClicked); // In Map chart
-                stateChecker(stateClicked);
+                //stateChecker(stateClicked);
                 });
-            
+
             svg.selectAll("text")
                .data(json.features)
                .enter()
@@ -351,6 +409,40 @@ var year;
                .attr("text-anchor","middle")
                .attr('font-size','8pt')
                .attr('fill','black');
+
+           var g = svg.append("g")
+                      .attr("class", "key")
+                      .attr("transform", "translate(-50,400)");
+
+            g.selectAll('rect')
+               .data(legendValues)
+               .enter()
+               .append('svg:rect')
+               .attr("class", "legendMap")
+               .attr("transform", function (d, i) {
+                   {
+                       return "translate(900," + (i*20) + ")"
+                   }
+               })
+               .attr('fill',function(d,i){
+                 return colorValues[i];
+               })
+               .attr('width',20)
+               .attr('height',20);
+
+            g.selectAll('text')
+              .data(legendLabels)
+              .enter()
+              .append('text')
+              .text(function(d,i){
+                console.log("Text",d,i);
+                return d;
+              })
+              .attr('x',950)
+              .attr('y',function(d,i){
+                return i*20+15;
+              })
+              .attr('fill','black');
 
        }); // Closing d3.json's anonymous function.
 
@@ -385,8 +477,8 @@ var year;
                         align: 'left',
                         verticalAlign: 'top',
                         style: {
-                            fontSize: '13px',
-                            fontWeight: 'bold'
+                          fontSize: '12px',
+                          fontWeight: 'light'
                         }
                     }
                 }]
@@ -415,106 +507,106 @@ var year;
                     } //tooltip key-value pair closes
         });
     }
-  
+
 var margin = {top: 100, right: 10, bottom: 30, left: 10},
     widthM = d3.select('div.viz2_line')[0][0].clientWidth - margin.left - margin.right,
     heightM = 400;
 
 console.log(widthM);
     
+var stateClicked = "Michigan";
+stateChecker(stateClicked, "2016");
+
 function stateChecker(stateClicked,year){ //fetch year value from slider
     d3.csv("statewise-all-years-categories.csv", function(error, data) {
         for (var i = 0; i < data.length; i++){
             if (stateClicked == data[i]['State']){
                 console.log("Matched");
                 console.log(data[i]);
-                				
-                var year; // fetch from slider?
-		        var val; //hate crime types
-
-		        year = 2016;
 				crimes13 = [data[i]['Race13'], data[i]['Religion13'], data[i]['SexualOrientation13'], data[i]['Disability13'], data[i]['Gender13'], data[i]['GenderIdentity13']];
 				crimes14 = [data[i]['Race14'], data[i]['Religion14'], data[i]['SexualOrientation14'], data[i]['Disability14'], data[i]['Gender14'], data[i]['GenderIdentity14']];
 				crimes15 = [data[i]['Race15'], data[i]['Religion15'], data[i]['SexualOrientation15'], data[i]['Disability15'], data[i]['Gender15'], data[i]['GenderIdentity15']];
 				crimes16 = [data[i]['Race16'], data[i]['Religion16'], data[i]['SexualOrientation16'], data[i]['Disability16'], data[i]['Gender16'], data[i]['GenderIdentity16']];
 				console.log(crimes13, crimes14, crimes15, crimes16);
-                
+
 				mins = [+d3.min(crimes13), +d3.min(crimes14), +d3.min(crimes15), +d3.min(crimes16)];
 				maxs = [+d3.max(crimes13), +d3.max(crimes14), +d3.max(crimes15), +d3.max(crimes16)];
 
                 console.log(mins);
                 console.log(maxs);
-                
+
 				var race_dataset = [
-					{x1: 2013, y1: data[i]['Race13'], x2: 2014, y2: data[i]['Race14'], x3: 2015, y3: data[i]['Race15'],
-                    x4: 2016, y4: data[i]['Race16']}]
+					{x: 2013, y: data[i]['Race13']}, {x: 2014, y: data[i]['Race14']}, {x: 2015, y: data[i]['Race15']},
+                    {x: 2016, y: data[i]['Race16']}]
                 var religion_dataset = [
-					{x1: 2013, y1: data[i]['Religion13'], x2: 2014, y2: data[i]['Religion14'], x3: 2015, y3: data[i]['Religion15'],
-                    x4: 2016, y4: data[i]['Religion16']}]
+					{x: 2013, y: data[i]['Religion13']}, {x: 2014, y: data[i]['Religion14']}, {x: 2015, y: data[i]['Religion15']},
+                    {x: 2016, y: data[i]['Religion16']}]
                 var gender_dataset = [
-					{x1: 2013, y1: data[i]['Gender13'], x2: 2014, y2: data[i]['Gender14'], x3: 2015, y3: data[i]['Gender15'],
-                    x4: 2016, y4: data[i]['Gender16']}]
+					{x: 2013, y: data[i]['Gender13']}, {x: 2014, y: data[i]['Gender14']}, {x: 2015, y: data[i]['Gender15']},
+                    {x: 2016, y: data[i]['Gender16']}]
 				var genderid_dataset = [
-					{x1: 2013, y1: data[i]['GenderIdentity13'], x2: 2014, y2: data[i]['GenderIdentity14'], x3: 2015, y3: data[i]['GenderIdentity15'],
-                    x4: 2016, y4: data[i]['GenderIdentity16']}]
+					{x: 2013, y: data[i]['GenderIdentity13']}, {x: 2014, y: data[i]['GenderIdentity14']}, {x: 2015, y: data[i]['GenderIdentity15']},
+                    {x: 2016, y: data[i]['GenderIdentity16']}]
                 var disability_dataset = [
-					{x1: 2013, y1: data[i]['Disability13'], x2: 2014, y2: data[i]['Disability14'], x3: 2015, y3: data[i]['Disability15'],
-                    x4: 2016, y4: data[i]['Disability16']}]
+					{x: 2013, y: data[i]['Disability13']}, {x: 2014, y: data[i]['Disability14']}, {x: 2015, y: data[i]['Disability15']},{x: 2016, y: data[i]['Disability16']}]
                 var sexualorientation_dataset = [
-					{x1: 2013, y1: data[i]['SexualOrientation13'], x2: 2014, y2: data[i]['SexualOrientation14'], x3: 2015, y3: data[i]['SexualOrientation15'],
-                    x4: 2016, y4: data[i]['SexualOrientation16']}]
-                var dataset = [
-                    {x: 2014, y: data[i]['Race14']},
-					{x: 2014, y: data[i]['Race14']},
-					{x: 2015, y: data[i]['Race15']},
-					{x: 2016, y: data[i]['Race16']}
-				]
-                drawlinechart(dataset,mins,maxs);
+					{x: 2013, y: data[i]['SexualOrientation13']}, {x: 2014, y: data[i]['SexualOrientation14']}, {x: 2015, y: data[i]['SexualOrientation15']},
+                    {x: 2016, y: data[i]['SexualOrientation16']}]
+                ///ploting line charts
+                var color = d3.scale.category10();
+                //Set ranges
+                var xScale = d3.scale.linear().domain([2013, 2016]).range([0, widthM]);
+
+                var yScale = d3.scale.linear()
+                            .domain([0, d3.max(maxs)])
+                            .range([heightM,0]);
+
+                var xAxis = d3.svg.axis()
+                    .scale(xScale)
+                    .orient("bottom").ticks(4);
+
+                var yAxis = d3.svg.axis()
+                    .scale(yScale)
+                    .orient("left");
+                
+                var categoryLine = d3.svg.line()
+                    .x(function(d) { return xScale(d.x); })
+                    .y(function(d) { return yScale(d.y); 
+                    });
+
+                //draw chart
+                var hcm = d3.select("#viz2").append("svg")
+                    .attr("width", widthM + margin.left + margin.right)
+                    .attr("height", heightM + margin.top + margin.bottom)
+                    .append("g")
+                    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+                hcm.append("g")
+                    .attr("class", "x axis")
+                    .attr("transform", "translate(0," + heightM + ")")
+                    .call(xAxis);
+
+                hcm.append("g")
+                    .attr("class", "y axis")
+                    .call(yAxis);
+                
+                drawlinechart(race_dataset,"#1E88E5",hcm,categoryLine);
+                drawlinechart(religion_dataset,"#8BC34A",hcm,categoryLine);
+                drawlinechart(gender_dataset,"#CDDC39",hcm,categoryLine);
+                drawlinechart(genderid_dataset,"#673AB7",hcm,categoryLine);
+                drawlinechart(disability_dataset,"#FFC107",hcm,categoryLine);
+                drawlinechart(sexualorientation_dataset,"#F48FB1",hcm,categoryLine);
             }
 		}
 	});
 }
     
-function drawlinechart(dataset,mins,maxs){
-    ///ploting line charts
-    var color = d3.scale.category10();
-    //Set ranges
-    var xScale = d3.scale.linear().domain([2013, 2016]).range([0, widthM]);
-    var yScale = d3.scale.linear().domain([d3.min(mins), d3.max(maxs)]).range([heightM,0]);
-
-    var xAxis = d3.svg.axis()
-        .scale(xScale)
-        .orient("bottom");
-
-    var yAxis = d3.svg.axis()
-        .scale(yScale)
-        .orient("left");
-
-    var categoryLine = d3.svg.line()
-        .x(function(d) { return xScale(d.x); })
-        .y(function(d) { return yScale(d.y); });
-
-    //draw chart
-    var hcm = d3.select("div.viz2_line").append("svg")
-        .attr("width", width + margin.left + margin.right)
-        .attr("height", height + margin.top + margin.bottom)
-      .append("g")
-        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-    hcm.append("g")
-        .attr("class", "x axis")
-        .attr("transform", "translate(0," + height + ")")
-        .call(xAxis);
-
-    hcm.append("g")
-        .attr("class", "y axis")
-        .call(yAxis);
-
+function drawlinechart(dataset,linecolor,hcm,categoryLine){
     hcm.append("path")
         .data([dataset])
         .attr("class", "line")
         .attr("d", categoryLine)
-        .style("stroke", "black");    
+        .style("stroke",linecolor);    
 }
 
 </script>
