@@ -100,12 +100,62 @@
                 <a class="dropdown-item" href="#viz2" id="Alabama">Alabama</a>
                 <a class="dropdown-item" href="#viz2" id="Alaska">Alaska</a>
                 <a class="dropdown-item" href="#viz2" id="Arizona">Arizona</a>
+                <a class="dropdown-item" href="#viz2" id="Arkansas">Arkansas</a>
+                <a class="dropdown-item" href="#viz2" id="California">California</a>
+                <a class="dropdown-item" href="#viz2" id="Colorado">Colorado</a>
+                <a class="dropdown-item" href="#viz2" id="Connecticut">Connecticut</a>
+                <a class="dropdown-item" href="#viz2" id="Delaware">Delaware</a>
+                <a class="dropdown-item" href="#viz2" id="Florida">Florida</a>
+                <a class="dropdown-item" href="#viz2" id="Georgia">Georgia</a>
+                <a class="dropdown-item" href="#viz2" id="Idaho">Idaho</a>
+                <a class="dropdown-item" href="#viz2" id="Illinois">Illinois</a>
+                <a class="dropdown-item" href="#viz2" id="Indiana">Indiana</a>
+                <a class="dropdown-item" href="#viz2" id="Iowa">Iowa</a>
+                <a class="dropdown-item" href="#viz2" id="Kansas">Kansas</a>
+                <a class="dropdown-item" href="#viz2" id="Kentucky">Kentucky</a>
+                <a class="dropdown-item" href="#viz2" id="Louisiana">Louisiana</a>
+                <a class="dropdown-item" href="#viz2" id="Maine">Maine</a>
+                <a class="dropdown-item" href="#viz2" id="Maryland">Maryland</a>
+                <a class="dropdown-item" href="#viz2" id="Massachusetts">Massachusetts</a>
+                <a class="dropdown-item" href="#viz2" id="Michigan">Michigan</a>
+                <a class="dropdown-item" href="#viz2" id="Minnesota">Minnesota</a>
+                <a class="dropdown-item" href="#viz2" id="Mississippi">Mississippi</a>
+                <a class="dropdown-item" href="#viz2" id="Missouri">Missouri</a>
+                <a class="dropdown-item" href="#viz2" id="Montana">Montana</a>
+                <a class="dropdown-item" href="#viz2" id="Nebraska">Nebraska</a>
+                <a class="dropdown-item" href="#viz2" id="Nevada">Nevada</a>
+                <a class="dropdown-item" href="#viz2" id="New Hampshire">New Hampshire</a>
+                <a class="dropdown-item" href="#viz2" id="New Jersey">New Jersey</a>
+                <a class="dropdown-item" href="#viz2" id="New Mexico">New Mexico</a>
+                <a class="dropdown-item" href="#viz2" id="New York">New York</a>
+                <a class="dropdown-item" href="#viz2" id="North Carolina">North Carolina</a>
+                <a class="dropdown-item" href="#viz2" id="North Dakota">North Dakota</a>
+                <a class="dropdown-item" href="#viz2" id="Ohio">Ohio</a>
+                <a class="dropdown-item" href="#viz2" id="Oklahoma">Oklahoma</a>
+                <a class="dropdown-item" href="#viz2" id="Oregon">Oregon</a>
+                <a class="dropdown-item" href="#viz2" id="Pennsylvania">Pennsylvania</a>
+                <a class="dropdown-item" href="#viz2" id="Rhode Island">Rhode Island</a>
+                <a class="dropdown-item" href="#viz2" id="South Carolina">South Carolina</a>
+                <a class="dropdown-item" href="#viz2" id="South Dakota">South Dakota</a>
+                <a class="dropdown-item" href="#viz2" id="Tennessee">Tennessee</a>
+                <a class="dropdown-item" href="#viz2" id="Texas">Texas</a>
+                <a class="dropdown-item" href="#viz2" id="Utah">Utah</a>
+                <a class="dropdown-item" href="#viz2" id="Vermont">Vermont</a>
+                <a class="dropdown-item" href="#viz2" id="Virginia">Virginia</a>
+                <a class="dropdown-item" href="#viz2" id="Washington">Washington</a>
+                <a class="dropdown-item" href="#viz2" id="West Virginia">West Virginia</a>
+                <a class="dropdown-item" href="#viz2" id="Wisconcin">Wisconcin</a>
+                <a class="dropdown-item" href="#viz2" id="Wyoming">Wyoming</a>
             </div>
     </div>
-    <p class="lead">You have selected: </p> <!--Display State Name as the graph is for that-->
+    <p>You have selected: </p> <!--Display State Name as the graph is for that-->
     <script>
+    var stateviz2 = "Michigan";
     $(".dropdown-menu a").click(function(){
       $(this).parents(".dropdown").find('.selection').text($(this).text());
+      var stateClicked = $(this).text();
+      $(".lead").empty().append(stateClicked);
+      stateChecker(stateClicked);
     });
     </script>
     <p class="lead" id="selectedState"></p>
@@ -508,32 +558,25 @@ var year;
         });
     }
 
-var margin = {top: 100, right: 10, bottom: 30, left: 10},
+var margin = {top: 100, right: 50, bottom: 50, left: 50},
     widthM = d3.select('div.viz2_line')[0][0].clientWidth - margin.left - margin.right,
-    heightM = 400;
+    heightM = 500;
 
 console.log(widthM);
-    
-var stateClicked = "Michigan";
-stateChecker(stateClicked, "2016");
 
-function stateChecker(stateClicked,year){ //fetch year value from slider
+var stateClicked = "Michigan";
+
+//console.log(stateClicked);
+//stateChecker(stateClicked);
+
+
+
+function stateChecker(stateClicked){ //fetch year value from slider
     d3.csv("statewise-all-years-categories.csv", function(error, data) {
         for (var i = 0; i < data.length; i++){
             if (stateClicked == data[i]['State']){
                 console.log("Matched");
                 console.log(data[i]);
-				crimes13 = [data[i]['Race13'], data[i]['Religion13'], data[i]['SexualOrientation13'], data[i]['Disability13'], data[i]['Gender13'], data[i]['GenderIdentity13']];
-				crimes14 = [data[i]['Race14'], data[i]['Religion14'], data[i]['SexualOrientation14'], data[i]['Disability14'], data[i]['Gender14'], data[i]['GenderIdentity14']];
-				crimes15 = [data[i]['Race15'], data[i]['Religion15'], data[i]['SexualOrientation15'], data[i]['Disability15'], data[i]['Gender15'], data[i]['GenderIdentity15']];
-				crimes16 = [data[i]['Race16'], data[i]['Religion16'], data[i]['SexualOrientation16'], data[i]['Disability16'], data[i]['Gender16'], data[i]['GenderIdentity16']];
-				console.log(crimes13, crimes14, crimes15, crimes16);
-
-				mins = [+d3.min(crimes13), +d3.min(crimes14), +d3.min(crimes15), +d3.min(crimes16)];
-				maxs = [+d3.max(crimes13), +d3.max(crimes14), +d3.max(crimes15), +d3.max(crimes16)];
-
-                console.log(mins);
-                console.log(maxs);
 
 				var race_dataset = [
 					{x: 2013, y: data[i]['Race13']}, {x: 2014, y: data[i]['Race14']}, {x: 2015, y: data[i]['Race15']},
@@ -552,29 +595,60 @@ function stateChecker(stateClicked,year){ //fetch year value from slider
                 var sexualorientation_dataset = [
 					{x: 2013, y: data[i]['SexualOrientation13']}, {x: 2014, y: data[i]['SexualOrientation14']}, {x: 2015, y: data[i]['SexualOrientation15']},
                     {x: 2016, y: data[i]['SexualOrientation16']}]
+
+
+                maxs = [d3.max(race_dataset, function (d) {
+                    return +d.y;
+                }), d3.max(religion_dataset, function (d) {
+                    return +d.y;
+                }), d3.max(gender_dataset, function (d) {
+                    return +d.y;
+                }), d3.max(genderid_dataset, function (d) {
+                    return +d.y;
+                }), d3.max(disability_dataset, function (d) {
+                    return +d.y;
+                }), d3.max(sexualorientation_dataset, function (d) {
+                    return +d.y;
+                })]
+
+                maxvalue = Math.ceil(d3.max(maxs) / 10) * 10;
+                console.log(d3.max(maxs), maxvalue);
+                yticks = maxvalue * 2 / 10;
+
+                lineMotivations = ["Race", "Religion", "Gender", "Gender Identity", "Disability", "Sexual Orientation"];
+                lineColors = ["#AA3E50", "#F1B81B", "#F47F55", "#8C78B7", "#87B05D", "#807874"]
+
                 ///ploting line charts
-                var color = d3.scale.category10();
+                //var color = d3.scale.category10();
                 //Set ranges
-                var xScale = d3.scale.linear().domain([2013, 2016]).range([0, widthM]);
+                var xScale = d3.scale.linear()
+                            .domain([2013, 2016])
+                            .range([0, widthM]);
 
                 var yScale = d3.scale.linear()
-                            .domain([0, d3.max(maxs)])
+                            .domain([0, maxvalue])
                             .range([heightM,0]);
 
                 var xAxis = d3.svg.axis()
                     .scale(xScale)
-                    .orient("bottom").ticks(4);
+                    .orient("bottom")
+                    .ticks(4);
 
                 var yAxis = d3.svg.axis()
                     .scale(yScale)
-                    .orient("left");
-                
+                    .orient("left")
+                    .ticks(yticks);
+
                 var categoryLine = d3.svg.line()
                     .x(function(d) { return xScale(d.x); })
-                    .y(function(d) { return yScale(d.y); 
+                    .y(function(d) { return yScale(d.y);
                     });
 
                 //draw chart
+                d3.select("#viz2").selectAll("svg").remove();
+
+
+
                 var hcm = d3.select("#viz2").append("svg")
                     .attr("width", widthM + margin.left + margin.right)
                     .attr("height", heightM + margin.top + margin.bottom)
@@ -589,24 +663,32 @@ function stateChecker(stateClicked,year){ //fetch year value from slider
                 hcm.append("g")
                     .attr("class", "y axis")
                     .call(yAxis);
-                
-                drawlinechart(race_dataset,"#1E88E5",hcm,categoryLine);
-                drawlinechart(religion_dataset,"#8BC34A",hcm,categoryLine);
-                drawlinechart(gender_dataset,"#CDDC39",hcm,categoryLine);
-                drawlinechart(genderid_dataset,"#673AB7",hcm,categoryLine);
-                drawlinechart(disability_dataset,"#FFC107",hcm,categoryLine);
-                drawlinechart(sexualorientation_dataset,"#F48FB1",hcm,categoryLine);
+
+
+
+                ////////////////////////////////////////////
+
+
+
+                ////////////////////////////////////////////
+
+                drawlinechart(race_dataset,"#AA3E50",hcm,categoryLine);
+                drawlinechart(religion_dataset,"#F1B81B",hcm,categoryLine);
+                drawlinechart(gender_dataset,"#F47F55",hcm,categoryLine);
+                drawlinechart(genderid_dataset,"#8C78B7",hcm,categoryLine);
+                drawlinechart(disability_dataset,"#87B05D",hcm,categoryLine);
+                drawlinechart(sexualorientation_dataset,"#807874",hcm,categoryLine);
             }
 		}
 	});
 }
-    
+
 function drawlinechart(dataset,linecolor,hcm,categoryLine){
     hcm.append("path")
         .data([dataset])
         .attr("class", "line")
         .attr("d", categoryLine)
-        .style("stroke",linecolor);    
+        .style("stroke", linecolor);
 }
 
 </script>

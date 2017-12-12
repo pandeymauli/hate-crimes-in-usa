@@ -130,6 +130,6 @@ svg{
     opacity: 0.2;
 }
 
-.stroke{
-    stroke-width: 4em;
+.line path {
+    stroke-width: 10em;
 }
