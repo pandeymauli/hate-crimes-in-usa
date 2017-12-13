@@ -59,12 +59,10 @@
     <div class="col-md-8 col-lg-8 explanation-part1">
       <br>
       <h2>On the rise?</h2>
-      <p>
-        Everyday, we see reports of crime, polarized political tumult, and biased-charged incidents both within and outside of the U.S.. Social media and access to other internet sites make these events appear to be growing in numbers and intensity, both through the increase of contentious political agendas, fake news reports, and ease of finding and sharing information with others. One such type of crime that encompasses all of these elements are <strong>hate crimes.</strong></p>
+      <p>Everyday, we see reports of crime, polarized political tumult, and biased-charged incidents both within and outside of the U.S.. Social media and access to other internet sites make these events appear to be growing in numbers and intensity, both through the increase of contentious political agendas, fake news reports, and ease of finding and sharing information with others. One such type of crime that encompasses all of these elements are <strong>hate crimes</strong>, and they are shown to be <strong>on the rise</strong> in the United States within recent years.</p>
 
-         <p> Media shows that they are <strong>on the rise</strong> in the United States within recent years.</p>
-    
-      <p>The state of Michigan especially has seen an increase in the number of <strong>reported</strong> hate crimes within the past few years. With various groups becoming emboldened to speak out on their beliefs, even traditionally ‘liberal’ communities, such as the University of Michigan, still experience what appears to be a spike in the amount of hate-related biases and crimes. Given the recent <a href="https://record.umich.edu/articles/u-m-will-consider-renting-space-white-supremacist-speaker" target="_blank"><nobr>climate</nobr></a> of the University’s campus and that of the U.S., the issue is as prevalent as ever.</p>
+
+      <p>The state of Michigan especially has seen an increase in the number of <strong>reported</strong> hate crimes within the past few years. With various groups becoming emboldened to speak out on their beliefs, even traditionally ‘liberal’ communities, such as the University of Michigan, still experience what appears to be a spike in the amount of hate-related biases and crimes. Given the recent climate:<a href="https://record.umich.edu/articles/u-m-will-consider-renting-space-white-supremacist-speaker" target="_blank"></a> of the University’s campus and that of the U.S., the issue is as prevalent as ever.</p>
 
       <h2>FBI Reported Hate Crimes</h2>
       <p>The purpose of this project is to <strong>explore the distribution of reported hate crimes</strong> and their motivations in the United States from 2013-2016. Furthermore, we want to show geographical differences for various years and explore potential reasonings and insights as to why these differences exist. </p>
@@ -86,6 +84,11 @@
 
       <h2>Hate Crimes in the U.S. from 2013-2016</h2>
       <p><strong>Explore the visualizations below to get a sense of the distribution of the FBI’s reported hate crime dataset.</strong> Use the time slider to update the U.S. map and the motivation breakdown treemap for a given year; click on a state to explore further statistics for the 6 motivations for that given year. </p>
+
+      <p> The populations for the U.S. have been normalized using the equations below:</p>
+      <p> Total reported state population / Total reported U.S. population = x </br>
+      (Total hate crimes per state / x) * 100 = Normalized rate</p>
+
     </div>
     <div class="col-md-2 col-lg-2"></div>
   </div> <!-- row 2 ends -->
@@ -112,78 +115,84 @@
       <div class="viz1_map"></div>
     </div>
   </div> <!-- row 3 ends -->
-    <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="stateselector">Select State</button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#viz2" id="Alabama">Alabama</a>
-                <a class="dropdown-item" href="#viz2" id="Alaska">Alaska</a>
-                <a class="dropdown-item" href="#viz2" id="Arizona">Arizona</a>
-                <a class="dropdown-item" href="#viz2" id="Arkansas">Arkansas</a>
-                <a class="dropdown-item" href="#viz2" id="California">California</a>
-                <a class="dropdown-item" href="#viz2" id="Colorado">Colorado</a>
-                <a class="dropdown-item" href="#viz2" id="Connecticut">Connecticut</a>
-                <a class="dropdown-item" href="#viz2" id="Delaware">Delaware</a>
-                <a class="dropdown-item" href="#viz2" id="Florida">Florida</a>
-                <a class="dropdown-item" href="#viz2" id="Georgia">Georgia</a>
-                <a class="dropdown-item" href="#viz2" id="Idaho">Idaho</a>
-                <a class="dropdown-item" href="#viz2" id="Illinois">Illinois</a>
-                <a class="dropdown-item" href="#viz2" id="Indiana">Indiana</a>
-                <a class="dropdown-item" href="#viz2" id="Iowa">Iowa</a>
-                <a class="dropdown-item" href="#viz2" id="Kansas">Kansas</a>
-                <a class="dropdown-item" href="#viz2" id="Kentucky">Kentucky</a>
-                <a class="dropdown-item" href="#viz2" id="Louisiana">Louisiana</a>
-                <a class="dropdown-item" href="#viz2" id="Maine">Maine</a>
-                <a class="dropdown-item" href="#viz2" id="Maryland">Maryland</a>
-                <a class="dropdown-item" href="#viz2" id="Massachusetts">Massachusetts</a>
-                <a class="dropdown-item" href="#viz2" id="Michigan">Michigan</a>
-                <a class="dropdown-item" href="#viz2" id="Minnesota">Minnesota</a>
-                <a class="dropdown-item" href="#viz2" id="Mississippi">Mississippi</a>
-                <a class="dropdown-item" href="#viz2" id="Missouri">Missouri</a>
-                <a class="dropdown-item" href="#viz2" id="Montana">Montana</a>
-                <a class="dropdown-item" href="#viz2" id="Nebraska">Nebraska</a>
-                <a class="dropdown-item" href="#viz2" id="Nevada">Nevada</a>
-                <a class="dropdown-item" href="#viz2" id="New Hampshire">New Hampshire</a>
-                <a class="dropdown-item" href="#viz2" id="New Jersey">New Jersey</a>
-                <a class="dropdown-item" href="#viz2" id="New Mexico">New Mexico</a>
-                <a class="dropdown-item" href="#viz2" id="New York">New York</a>
-                <a class="dropdown-item" href="#viz2" id="North Carolina">North Carolina</a>
-                <a class="dropdown-item" href="#viz2" id="North Dakota">North Dakota</a>
-                <a class="dropdown-item" href="#viz2" id="Ohio">Ohio</a>
-                <a class="dropdown-item" href="#viz2" id="Oklahoma">Oklahoma</a>
-                <a class="dropdown-item" href="#viz2" id="Oregon">Oregon</a>
-                <a class="dropdown-item" href="#viz2" id="Pennsylvania">Pennsylvania</a>
-                <a class="dropdown-item" href="#viz2" id="Rhode Island">Rhode Island</a>
-                <a class="dropdown-item" href="#viz2" id="South Carolina">South Carolina</a>
-                <a class="dropdown-item" href="#viz2" id="South Dakota">South Dakota</a>
-                <a class="dropdown-item" href="#viz2" id="Tennessee">Tennessee</a>
-                <a class="dropdown-item" href="#viz2" id="Texas">Texas</a>
-                <a class="dropdown-item" href="#viz2" id="Utah">Utah</a>
-                <a class="dropdown-item" href="#viz2" id="Vermont">Vermont</a>
-                <a class="dropdown-item" href="#viz2" id="Virginia">Virginia</a>
-                <a class="dropdown-item" href="#viz2" id="Washington">Washington</a>
-                <a class="dropdown-item" href="#viz2" id="West Virginia">West Virginia</a>
-                <a class="dropdown-item" href="#viz2" id="Wisconcin">Wisconcin</a>
-                <a class="dropdown-item" href="#viz2" id="Wyoming">Wyoming</a>
-            </div>
+
+
+
+  <div class="dropdown mt-2 col-md-12 col-lg-12">
+      <p class = "text-center" id = "statewise">Statewise Hate Crimes by Motivation</p>
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="stateselector">Select State</button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#viz2" id="Alabama">Alabama</a>
+            <a class="dropdown-item" href="#viz2" id="Alaska">Alaska</a>
+            <a class="dropdown-item" href="#viz2" id="Arizona">Arizona</a>
+            <a class="dropdown-item" href="#viz2" id="Arkansas">Arkansas</a>
+            <a class="dropdown-item" href="#viz2" id="California">California</a>
+            <a class="dropdown-item" href="#viz2" id="Colorado">Colorado</a>
+            <a class="dropdown-item" href="#viz2" id="Connecticut">Connecticut</a>
+            <a class="dropdown-item" href="#viz2" id="Delaware">Delaware</a>
+            <a class="dropdown-item" href="#viz2" id="Florida">Florida</a>
+            <a class="dropdown-item" href="#viz2" id="Georgia">Georgia</a>
+            <a class="dropdown-item" href="#viz2" id="Idaho">Idaho</a>
+            <a class="dropdown-item" href="#viz2" id="Illinois">Illinois</a>
+            <a class="dropdown-item" href="#viz2" id="Indiana">Indiana</a>
+            <a class="dropdown-item" href="#viz2" id="Iowa">Iowa</a>
+            <a class="dropdown-item" href="#viz2" id="Kansas">Kansas</a>
+            <a class="dropdown-item" href="#viz2" id="Kentucky">Kentucky</a>
+            <a class="dropdown-item" href="#viz2" id="Louisiana">Louisiana</a>
+            <a class="dropdown-item" href="#viz2" id="Maine">Maine</a>
+            <a class="dropdown-item" href="#viz2" id="Maryland">Maryland</a>
+            <a class="dropdown-item" href="#viz2" id="Massachusetts">Massachusetts</a>
+            <a class="dropdown-item" href="#viz2" id="Michigan">Michigan</a>
+            <a class="dropdown-item" href="#viz2" id="Minnesota">Minnesota</a>
+            <a class="dropdown-item" href="#viz2" id="Mississippi">Mississippi</a>
+            <a class="dropdown-item" href="#viz2" id="Missouri">Missouri</a>
+            <a class="dropdown-item" href="#viz2" id="Montana">Montana</a>
+            <a class="dropdown-item" href="#viz2" id="Nebraska">Nebraska</a>
+            <a class="dropdown-item" href="#viz2" id="Nevada">Nevada</a>
+            <a class="dropdown-item" href="#viz2" id="New Hampshire">New Hampshire</a>
+            <a class="dropdown-item" href="#viz2" id="New Jersey">New Jersey</a>
+            <a class="dropdown-item" href="#viz2" id="New Mexico">New Mexico</a>
+            <a class="dropdown-item" href="#viz2" id="New York">New York</a>
+            <a class="dropdown-item" href="#viz2" id="North Carolina">North Carolina</a>
+            <a class="dropdown-item" href="#viz2" id="North Dakota">North Dakota</a>
+            <a class="dropdown-item" href="#viz2" id="Ohio">Ohio</a>
+            <a class="dropdown-item" href="#viz2" id="Oklahoma">Oklahoma</a>
+            <a class="dropdown-item" href="#viz2" id="Oregon">Oregon</a>
+            <a class="dropdown-item" href="#viz2" id="Pennsylvania">Pennsylvania</a>
+            <a class="dropdown-item" href="#viz2" id="Rhode Island">Rhode Island</a>
+            <a class="dropdown-item" href="#viz2" id="South Carolina">South Carolina</a>
+            <a class="dropdown-item" href="#viz2" id="South Dakota">South Dakota</a>
+            <a class="dropdown-item" href="#viz2" id="Tennessee">Tennessee</a>
+            <a class="dropdown-item" href="#viz2" id="Texas">Texas</a>
+            <a class="dropdown-item" href="#viz2" id="Utah">Utah</a>
+            <a class="dropdown-item" href="#viz2" id="Vermont">Vermont</a>
+            <a class="dropdown-item" href="#viz2" id="Virginia">Virginia</a>
+            <a class="dropdown-item" href="#viz2" id="Washington">Washington</a>
+            <a class="dropdown-item" href="#viz2" id="West Virginia">West Virginia</a>
+            <a class="dropdown-item" href="#viz2" id="Wisconcin">Wisconcin</a>
+            <a class="dropdown-item" href="#viz2" id="Wyoming">Wyoming</a>
+        </div>
     </div>
-    <p>You have selected: </p> <!--Display State Name as the graph is for that-->
+
+
+
     <script>
     var stateviz2 = "Michigan";
     $(".dropdown-menu a").click(function(){
       $(this).parents(".dropdown").find('.selection').text($(this).text());
       var stateClicked = $(this).text();
-      $(".lead").empty().append(stateClicked);
+      $(".lead").empty().append("Hate Crimes in ").append(stateClicked);
       stateChecker(stateClicked);
     });
     </script>
-    <p class="lead" id="selectedState"></p>
+    <p class="lead m-3" id="selectedState"></p> <!--Display State Name as the graph is for that-->
     <div class="row">
     <div class="col-md-12 col-lg-12">
         <div class="viz2_line" id="viz2"></div>
     </div>
     </div> <!-- row 4 ends -->
     <div class="row">
-      <div class="col-md-12 col-lg-12" id="container">
+      <div class="col-md-12 col-lg-12 my-4" id="container">
       </div>
     </div>
 
@@ -200,6 +209,46 @@
       <p>The recent increase of hate crimes in the U.S. may be due to both an increase in hate crime being committed, as well as an increase in agencies reporting these crimes. Given the emboldened attitudes of individuals and groups committing hate crimes, those being targeted are also becoming more emboldened to voice these occurrences and bring to light the reality of this nation.</p>
 
       <p>What do you think? Are they on the rise?</p>
+
+      <br>
+      <h2> References & Additional Readings</h2>
+
+    <ul>
+
+    <li> <a href=”https://www.huffingtonpost.com/entry/hate-crime-rise-2016-united-states-trump_us_59becac8e4b086432b07fed8” target="_blank"><nobr>Exclusive: New Report Offers Proof Of US Hate Crime Rise In The Trump Era</nobr></a></li>
+
+    <li> <a href=”https://www.freep.com/story/news/local/michigan/2017/12/10/hate-crimes-michigan/886779001/” target="_blank"><nobr>FBI: Reported hate crimes spike 29% in Michigan, which had the 4th highest nationally</nobr></a></li>
+
+    <li> <a href=”http://www.bbc.com/news/world-us-canada-41975573” target="_blank"><nobr>FBI: US hate crimes rise for second straight year</nobr></a></li>
+
+    <li> <a href=”https://www.washingtonpost.com/news/post-nation/wp/2017/11/13/hate-crimes-in-the-united-states-increased-last-year-the-fbi-says/?utm_term=.ed24faa8f404” target="_blank"><nobr>Hate crimes in the United States increased last year, the FBI says</nobr></a></li>
+
+    <li> <a href=”https://www.splcenter.org/hate-map” target="_blank"><nobr>Hate Map from Southern Poverty Law Center</nobr></a></li>
+
+    <li> <a href=”https://mic.com/articles/137305/here-s-how-homophobic-sexist-and-racist-each-us-state-really-is#.Qcjcy0Mm1” target="_blank"><nobr>Here's How Homophobic, Sexist and Racist Each US State Really Is</nobr></a></li>
+
+    <li> <a href=”http://www.politifact.com/punditfact/statements/2016/jul/10/charles-ramsey/how-many-police-departments-are-us/” target="_blank"><nobr>How many police departments are in the United States</nobr></a></li>
+
+    <li> <a href=”https://www.thetoptens.com/most-racists-states-us/” target="_blank"><nobr>Most Racist States in the U.S.
+    </nobr></a></li>
+
+    <li> <a href=”http://www.abajournal.com/news/article/more_than_100_federal_agencies_fail_to_report_hate_crimes_to_the_fbis_natio” target="_blank"><nobr>More than 100 federal agencies fail to report hate crimes to the FBI’s national database </nobr></a></li>
+
+    <li> <a href=”https://www.aol.com/article/news/2017/11/14/new-fbi-data-shows-rise-in-hate-crimes-in-2016-states-most-reported-cases/23276262/” target="_blank"><nobr>New FBI data shows rise in hate crimes in 2016 and reveals which states have most reported cases
+    </nobr></a></li>
+
+    <li> <a href=”https://www.washingtonpost.com/news/posteverything/wp/2017/12/11/sexual-harassment-should-be-treated-as-a-hate-crime/?utm_term=.65d57bdc1d18” target="_blank"><nobr>Sexual harassment should be treated as a hate crime</nobr></a></li>
+
+    <li> <a href=”http://www.cnn.com/2017/01/05/health/hate-crimes-tracking-history-fbi/index.html” target="_blank"><nobr>The fascinating, if unreliable, history of hate crime tracking in the US </nobr></a></li>
+
+    <li> <a href=”http://www.cnn.com/2017/11/13/politics/hate-crimes-fbi-2016-rise/index.html” target="_blank"><nobr>The number of hate crimes rose in 2016</nobr></a></li>
+
+    <li> <a href=”http://www.bbc.com/news/world-us-canada-38149406” target="_blank"><nobr>'Trump effect' led to hate crime surge, report finds
+     </nobr></a></li>
+
+    <li> <a href=”https://www.propublica.org/article/why-america-fails-at-gathering-hate-crime-statistics” target="_blank"><nobr>Why America Fails at Gathering Hate Crime Statistics
+    </nobr></a></li>
+
 
     </div>
     <div class="col-md-2 col-lg-2"></div>
@@ -423,7 +472,7 @@ var year;
                         json.features[j].properties.dataValueGender13 = dataValueGender13;
                         json.features[j].properties.dataValueGenderIdentity13 = dataValueGenderIdentity13;
                         json.features[j].properties.dataValueTotal13 = dataValueTotal13;
-                        json.features[j].properties.dataValueNorm13 =  dataValueNorm13; 
+                        json.features[j].properties.dataValueNorm13 =  dataValueNorm13;
 
                         json.features[j].properties.dataValueRace14 = dataValueRace14;
                         json.features[j].properties.dataValueReligion14 = dataValueReligion14;
@@ -492,7 +541,7 @@ var year;
 
            var g = svg.append("g")
                       .attr("class", "key")
-                      .attr("transform", "translate(-50,400)");
+                      .attr("transform", "translate(-55,400)");
 
             g.selectAll('rect')
                .data(legendValues)
@@ -518,7 +567,7 @@ var year;
                 console.log("Text",d,i);
                 return d;
               })
-              .attr('x',950)
+              .attr('x',935)
               .attr('y',function(d,i){
                 return i*20+15;
               })
@@ -589,9 +638,10 @@ var year;
         });
     }
 
-var margin = {top: 100, right: 50, bottom: 50, left: 50},
-    widthM = d3.select('div.viz2_line')[0][0].clientWidth - margin.left - margin.right,
-    heightM = 500;
+var margin = {top: 20, right: 100, bottom: 50, left: 100},
+    //widthM = d3.select('div.viz2_line')[0][0].clientWidth - margin.left - margin.right,
+    widthM = 1200;
+    heightM = 400;
 
 console.log(widthM);
 
@@ -627,6 +677,8 @@ function stateChecker(stateClicked){ //fetch year value from slider
 					{x: 2013, y: data[i]['SexualOrientation13']}, {x: 2014, y: data[i]['SexualOrientation14']}, {x: 2015, y: data[i]['SexualOrientation15']},
                     {x: 2016, y: data[i]['SexualOrientation16']}]
 
+                var average_dataset = [
+                    {x: 2013, y: 119}, {x: 2014, y: 109}, {x: 2015, y: 119}, {x: 2016, y: 123}]
 
                 maxs = [d3.max(race_dataset, function (d) {
                     return +d.y;
@@ -640,21 +692,22 @@ function stateChecker(stateClicked){ //fetch year value from slider
                     return +d.y;
                 }), d3.max(sexualorientation_dataset, function (d) {
                     return +d.y;
+                }), d3.max(average_dataset, function (d) {
+                    return d.y;
                 })]
 
-                maxvalue = Math.ceil(d3.max(maxs) / 10) * 10;
-                console.log(d3.max(maxs), maxvalue);
-                yticks = maxvalue * 2 / 10;
+                maxvalue = Math.ceil(d3.max(maxs) / 100) * 100;
+                yticks = maxvalue * 2 / 100;
 
+                motivations = [1, 2, 3, 4, 5, 6]
                 lineMotivations = ["Race", "Religion", "Gender", "Gender Identity", "Disability", "Sexual Orientation"];
                 lineColors = ["#AA3E50", "#F1B81B", "#F47F55", "#8C78B7", "#87B05D", "#807874"]
 
                 ///ploting line charts
-                //var color = d3.scale.category10();
                 //Set ranges
                 var xScale = d3.scale.linear()
                             .domain([2013, 2016])
-                            .range([0, widthM]);
+                            .range([0, 700]);
 
                 var yScale = d3.scale.linear()
                             .domain([0, maxvalue])
@@ -663,7 +716,9 @@ function stateChecker(stateClicked){ //fetch year value from slider
                 var xAxis = d3.svg.axis()
                     .scale(xScale)
                     .orient("bottom")
-                    .ticks(4);
+                    .ticks(4)
+                    .innerTickSize(-heightM)
+                    .tickPadding(10);
 
                 var yAxis = d3.svg.axis()
                     .scale(yScale)
@@ -677,8 +732,6 @@ function stateChecker(stateClicked){ //fetch year value from slider
 
                 //draw chart
                 d3.select("#viz2").selectAll("svg").remove();
-
-
 
                 var hcm = d3.select("#viz2").append("svg")
                     .attr("width", widthM + margin.left + margin.right)
@@ -696,30 +749,79 @@ function stateChecker(stateClicked){ //fetch year value from slider
                     .call(yAxis);
 
 
+                drawlinechart(average_dataset,"#969696",hcm,categoryLine,'d')
+                drawlinechart(race_dataset,"#AA3E50",hcm,categoryLine,'n');
+                drawlinechart(religion_dataset,"#F1B81B",hcm,categoryLine,'n');
+                drawlinechart(gender_dataset,"#F47F55",hcm,categoryLine,'n');
+                drawlinechart(genderid_dataset,"#8C78B7",hcm,categoryLine,'n');
+                drawlinechart(disability_dataset,"#87B05D",hcm,categoryLine,'n');
+                drawlinechart(sexualorientation_dataset,"#807874",hcm,categoryLine,'n');
 
-                ////////////////////////////////////////////
 
+                var g = hcm.append("g")
+                           .attr("class", "key")
+                           .attr("transform", "translate(-55,130)");
 
+                 g.selectAll('rect')
+                    .data(motivations)
+                    .enter()
+                    .append('svg:rect')
+                    .attr("class", "legendMap")
+                    .attr("transform", function (d, i) {
+                        {
+                            return "translate(800," + (i*20) + ")"
+                        }
+                    })
+                    .attr('fill',function(d,i){
+                      return lineColors[i];
+                    })
+                    .attr('width',20)
+                    .attr('height',20);
 
-                ////////////////////////////////////////////
+                 g.selectAll('text')
+                   .data(lineMotivations)
+                   .enter()
+                   .append('text')
+                   .text(function(d,i){
+                     console.log("Text",d,i);
+                     return d;
+                   })
+                   .attr('x', 830)
+                   .attr('y',function(d,i){
+                     return i*20+15;
+                   });
 
-                drawlinechart(race_dataset,"#AA3E50",hcm,categoryLine);
-                drawlinechart(religion_dataset,"#F1B81B",hcm,categoryLine);
-                drawlinechart(gender_dataset,"#F47F55",hcm,categoryLine);
-                drawlinechart(genderid_dataset,"#8C78B7",hcm,categoryLine);
-                drawlinechart(disability_dataset,"#87B05D",hcm,categoryLine);
-                drawlinechart(sexualorientation_dataset,"#807874",hcm,categoryLine);
+                 //not working
+                 g.selectAll('text')
+                    .append('text')
+                    .text("The dashed line indicates average number of hate crimes across US.")
+                    .attr('x',830)
+                    .attr('y',300)
+                    .style("fill", "black");
             }
 		}
 	});
 }
 
-function drawlinechart(dataset,linecolor,hcm,categoryLine){
-    hcm.append("path")
-        .data([dataset])
-        .attr("class", "line")
-        .attr("d", categoryLine)
-        .style("stroke", linecolor);
+function drawlinechart(dataset,linecolor,hcm,categoryLine,val){
+
+    if (val === 'n') {
+        hcm.append("path")
+            .data([dataset])
+            .attr("class", "line")
+            .attr("d", categoryLine)
+            .style("stroke", linecolor)
+            .style("stroke-width", 3);
+    }
+
+    if (val === 'd') {
+        hcm.append("path")
+            .data([dataset])
+            .attr("class", "line")
+            .attr("d", categoryLine)
+            .style("stroke-dasharray","6,4")
+            .style("stroke", linecolor);
+    }
 }
 
 </script>

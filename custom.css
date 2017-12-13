@@ -100,6 +100,26 @@ svg{
   text-align: center;
 }
 
+#statewise {
+    font-size: 2.25em;
+}
+
+#dropdownMenuButton {
+    border-radius: 0px;
+}
+
+.dropdown-menu {
+    height: auto;
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+.lead {
+    font-size: 150%;
+    font-family: 'Barlow', sans-serif;
+    padding-left: 23rem;
+}
+
 /* Style northward tooltips differently */
 .d3-tip.n:after {
   margin: -1px 0 0 0;
@@ -131,5 +151,5 @@ svg{
 }
 
 .line path {
-    stroke-width: 10em;
+    stroke-width: 20px;
 }

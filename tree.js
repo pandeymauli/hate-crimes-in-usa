@@ -30,7 +30,7 @@
         }],
 
         title: {
-            text: 'Hate Crimes by Motivation - 2016 (Normalized to US population)'
+            text: 'Hate Crimes by Motivation across US'
         },
         data: {
             googleSpreadsheetKey: '1CSSXuFN5lJJedAS7RO-8HkL2VNi_ljtsly5Cnq04V6M',
