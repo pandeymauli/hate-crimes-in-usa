@@ -101,7 +101,7 @@ svg{
 }
 
 #statewise {
-    font-size: 2.25em;
+    font-size: 2em;
 }
 
 #dropdownMenuButton {
@@ -117,7 +117,7 @@ svg{
 .lead {
     font-size: 150%;
     font-family: 'Barlow', sans-serif;
-    padding-left: 23rem;
+    padding-left: 25rem;
 }
 
 /* Style northward tooltips differently */

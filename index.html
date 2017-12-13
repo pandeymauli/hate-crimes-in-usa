@@ -171,13 +171,15 @@
             <a class="dropdown-item" href="#viz2" id="West Virginia">West Virginia</a>
             <a class="dropdown-item" href="#viz2" id="Wisconcin">Wisconcin</a>
             <a class="dropdown-item" href="#viz2" id="Wyoming">Wyoming</a>
+            <a class="dropdown-item" href="#viz2" id="US">US</a>
         </div>
+
     </div>
 
 
 
     <script>
-    var stateviz2 = "Michigan";
+
     $(".dropdown-menu a").click(function(){
       $(this).parents(".dropdown").find('.selection').text($(this).text());
       var stateClicked = $(this).text();
@@ -643,14 +645,14 @@ var margin = {top: 20, right: 100, bottom: 50, left: 100},
     widthM = 1200;
     heightM = 400;
 
-console.log(widthM);
-
-var stateClicked = "Michigan";
 
 //console.log(stateClicked);
 //stateChecker(stateClicked);
 
-
+if ($(".lead").empty()) {
+    $(".lead").append("Total Hate Crimes across US");
+    stateChecker('US');
+}
 
 function stateChecker(stateClicked){ //fetch year value from slider
     d3.csv("statewise-all-years-categories.csv", function(error, data) {
@@ -698,6 +700,10 @@ function stateChecker(stateClicked){ //fetch year value from slider
 
                 maxvalue = Math.ceil(d3.max(maxs) / 100) * 100;
                 yticks = maxvalue * 2 / 100;
+                if (stateClicked == 'US') {
+                    maxvalue = 4000;
+                    yticks = 8;
+                }
 
                 motivations = [1, 2, 3, 4, 5, 6]
                 lineMotivations = ["Race", "Religion", "Gender", "Gender Identity", "Disability", "Sexual Orientation"];
@@ -707,7 +713,7 @@ function stateChecker(stateClicked){ //fetch year value from slider
                 //Set ranges
                 var xScale = d3.scale.linear()
                             .domain([2013, 2016])
-                            .range([0, 700]);
+                            .range([0, 780]);
 
                 var yScale = d3.scale.linear()
                             .domain([0, maxvalue])
@@ -748,15 +754,13 @@ function stateChecker(stateClicked){ //fetch year value from slider
                     .attr("class", "y axis")
                     .call(yAxis);
 
-
-                drawlinechart(average_dataset,"#969696",hcm,categoryLine,'d')
                 drawlinechart(race_dataset,"#AA3E50",hcm,categoryLine,'n');
                 drawlinechart(religion_dataset,"#F1B81B",hcm,categoryLine,'n');
                 drawlinechart(gender_dataset,"#F47F55",hcm,categoryLine,'n');
                 drawlinechart(genderid_dataset,"#8C78B7",hcm,categoryLine,'n');
                 drawlinechart(disability_dataset,"#87B05D",hcm,categoryLine,'n');
                 drawlinechart(sexualorientation_dataset,"#807874",hcm,categoryLine,'n');
-
+                drawlinechart(average_dataset,"#969696",hcm,categoryLine,'d');
 
                 var g = hcm.append("g")
                            .attr("class", "key")
@@ -769,7 +773,7 @@ function stateChecker(stateClicked){ //fetch year value from slider
                     .attr("class", "legendMap")
                     .attr("transform", function (d, i) {
                         {
-                            return "translate(800," + (i*20) + ")"
+                            return "translate(890," + (i*20) + ")"
                         }
                     })
                     .attr('fill',function(d,i){
@@ -786,7 +790,7 @@ function stateChecker(stateClicked){ //fetch year value from slider
                      console.log("Text",d,i);
                      return d;
                    })
-                   .attr('x', 830)
+                   .attr('x', 920)
                    .attr('y',function(d,i){
                      return i*20+15;
                    });
@@ -795,7 +799,7 @@ function stateChecker(stateClicked){ //fetch year value from slider
                  g.selectAll('text')
                     .append('text')
                     .text("The dashed line indicates average number of hate crimes across US.")
-                    .attr('x',830)
+                    .attr('x',920)
                     .attr('y',300)
                     .style("fill", "black");
             }
